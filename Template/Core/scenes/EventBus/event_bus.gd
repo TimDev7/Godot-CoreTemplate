@@ -7,4 +7,5 @@ signal logged()
 
 
 # --- CORE ---
-signal game_data_loaded(last_save_time) # last_save_time: String
+signal game_data_loaded(success, last_save_time) # last_save_time: String
+signal game_data_saved(success)
