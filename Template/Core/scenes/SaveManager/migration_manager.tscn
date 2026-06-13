@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bdd0jsjmipt4"]
+
+[ext_resource type="Script" uid="uid://sdiiu7kmxex8" path="res://Template/Core/scenes/SaveManager/migration_manager.gd" id="1_0kctf"]
+
+[node name="MigrationManager" type="Node" unique_id=779676047]
+script = ExtResource("1_0kctf")

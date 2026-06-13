@@ -5,11 +5,13 @@ const DEFAULT_DATA_SAVEPATH:String = "user://saves/game_data.json"
 const SAVE_SECRET_CODE:String = "HelloMyLittleHacker:)"
 
 var data_handler:Node
+var migration_manager:MigrationManager
 
 
-func initialize(_date_handler:Node) -> void:
-	get_tree().set_auto_accept_quit(false)
+func initialize(_date_handler:Node, _migration_manager:MigrationManager) -> void:
 	data_handler = _date_handler
+	migration_manager = _migration_manager
+	Core.event_bus.connect("game_data_saved",_on_game_data_saved)
 
 
 func load_data(path:String = DEFAULT_DATA_SAVEPATH) -> void:
@@ -28,16 +30,18 @@ func load_data(path:String = DEFAULT_DATA_SAVEPATH) -> void:
 		success = false
 	else:
 		success = true
+		_migrate_data(loaded_data)
 		data_handler.dict_to_game_data(loaded_data)
 	
 	Core.event_bus.emit_signal("game_data_loaded", success, backup_used, loaded_data.get("save_time", default_save_time))
 
 
 func save_data(path:String = DEFAULT_DATA_SAVEPATH) -> void:
-	var error = _save_data_in_file(path)
-	if error != OK:
-		pass
-	Core.event_bus.emit_signal("game_data_saved")
+	WorkerThreadPool.add_task(_save_data_in_file.bind(path))
+
+
+func _on_game_data_saved(success:bool,desc:String) -> void:
+	print("success: %s desc: %s" % [success, desc])
 
 
 func _load_data_from_file(path:String) -> Dictionary:
@@ -86,17 +90,23 @@ func _save_data_in_file(path:String) -> Error:
 	var temp_path:String = _create_temp_file(data)
 	if temp_path.is_empty():
 		print("Failed to create temp file!")
+		Core.event_bus.call_deferred("emit_signal","game_data_saved",false,"Failed to create temp file!")
 		return Error.FAILED
 	
 	var backup_error = _create_backup_file(path)
 	if backup_error != OK:
 		print("Failed to create backup file!")
+		Core.event_bus.call_deferred("emit_signal","game_data_saved",false,"Failed to create backup file!")
+		return Error.FAILED
 	
 	var rename_error = DirAccess.open("user://").rename(temp_path,path)
 	if rename_error != OK:
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 		print("Failed to rename file!")
+		Core.event_bus.call_deferred("emit_signal","game_data_saved",false,"Failed to rename file!")
 		return Error.FAILED
 	
+	Core.event_bus.call_deferred("emit_signal","game_data_saved",true,"Saved successfuly!")
 	return Error.OK
 
 
@@ -149,3 +159,7 @@ func _create_backup_file(data:String, path:String = DEFAULT_DATA_SAVEPATH) -> Er
 		print("Failed to rename backup file! Error: %s" % rename_error)
 		return Error.FAILED
 	return Error.OK
+
+
+func _migrate_data(data:Dictionary) -> void:
+	migration_manager.run_migrations(data)

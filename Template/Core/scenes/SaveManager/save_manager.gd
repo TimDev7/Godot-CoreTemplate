@@ -5,20 +5,23 @@ class_name CoreSaveManager
 # [Х] Защита через контрольные суммы
 # [Х] Атомарные сохранения
 # [Х] Система бэкапов
-# [ ] Поточное сохранение
+# [X] Поточное сохранение
 # [ ] Миграции данных
 
 const AUTO_SAVE_WAIT_TIME:float = 5.0
 
 var data_handler:Node
 var save_manager:Node
-var auto_save_timer:Timer
+var _migration_manager: MigrationManager
+var _auto_save_timer:Timer
 
 func initialize(_data_handler:Node) -> void:
 	data_handler = _data_handler
+	get_tree().set_auto_accept_quit(false)
 	_set_save_manager()
+	_create_migration_manager()
 	
-	save_manager.initialize(data_handler)
+	save_manager.initialize(data_handler,_migration_manager)
 	save_manager.load_data()
 	
 	_create_auto_save_timer()
@@ -48,8 +51,13 @@ func _create_auto_save_timer() -> void:
 	timer.ignore_time_scale = true
 	add_child(timer)
 	
-	auto_save_timer = timer
-	auto_save_timer.connect("timeout",_on_AutoSaveTimer_timeout)
+	_auto_save_timer = timer
+	_auto_save_timer.connect("timeout",_on_AutoSaveTimer_timeout)
+
+func _create_migration_manager() -> void:
+	var manager = MigrationManager.new()
+	add_child(manager)
+	_migration_manager = manager
 
 
 func _on_AutoSaveTimer_timeout():
@@ -57,7 +65,7 @@ func _on_AutoSaveTimer_timeout():
 
 
 func _on_game_data_saved():
-	auto_save_timer.start()
+	_auto_save_timer.start()
 
 
 func _notification(what):
