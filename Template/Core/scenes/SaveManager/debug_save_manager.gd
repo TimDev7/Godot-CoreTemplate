@@ -1,7 +1,7 @@
 extends Node
 class_name CoreDSaveManager
 
-const DEFAULT_DATA_SAVEPATH:String = "user://saves/game_data.json"
+const DEFAULT_DATA_SAVEPATH:String = "user://game_data.json"
 const SAVE_SECRET_CODE:String = "HelloMyLittleHacker:)"
 
 var data_handler:Node
@@ -20,6 +20,8 @@ func load_data(path:String = DEFAULT_DATA_SAVEPATH) -> void:
 	var default_save_time:int = int(Time.get_unix_time_from_system())
 	
 	data_handler.load_default_data()
+	if not FileAccess.file_exists(path):
+		save_data()
 	
 	var loaded_data:Dictionary = _load_data_from_file(path)
 	var backup_path:String = path + ".bak"
@@ -37,24 +39,24 @@ func load_data(path:String = DEFAULT_DATA_SAVEPATH) -> void:
 
 
 func save_data(path:String = DEFAULT_DATA_SAVEPATH) -> void:
-	WorkerThreadPool.add_task(_save_data_in_file.bind(path))
+	_save_data_in_file(_get_data_for_save(),path)
 
 
 func _on_game_data_saved(success:bool,desc:String) -> void:
-	print("success: %s desc: %s" % [success, desc])
+	print("success: %s |\tdesc: %s" % [success, desc])
 
 
 func _load_data_from_file(path:String) -> Dictionary:
 	var file:FileAccess = FileAccess.open(path, FileAccess.READ)
 	if not file:
-		print("Failed to open file! Error: %s" % FileAccess.get_open_error())
+		print("Failed to open data file! Error: %s\tPath: %s:" % [error_string(FileAccess.get_open_error()),path])
 		return {}
 	var content:String = file.get_as_text()
 	file.close()
 	
 	var parse_result = JSON.parse_string(content)
 	if not parse_result:
-		push_error("Failed to parse content json!")
+		print("Failed to parse content json!")
 		return {}
 	
 	var loaded_content:Dictionary = parse_result
@@ -73,52 +75,54 @@ func _load_data_from_file(path:String) -> Dictionary:
 	return loaded_data
 
 
-func _is_checksum_valid(data:Dictionary) -> bool:
-	var string_data:String = data["data"]
-	var checksum:String = data["signature"]
-	var current_checksum = (string_data + SAVE_SECRET_CODE).sha256_text()
+func _is_checksum_valid(json:Dictionary) -> bool:
+	var json_string:String = str(json["data"])
+	var checksum:String = json["signature"]
+	
+	var current_checksum:String = (json_string + SAVE_SECRET_CODE).sha256_text()
 	
 	if current_checksum == checksum:
 		return true
 	
+	print("%s != %s" % [current_checksum,checksum])
 	return false
 
 
-func _save_data_in_file(path:String) -> Error:
-	var data:String = _get_data_for_save()
-	
+func _save_data_in_file(data:String, path:String) -> Error:
 	var temp_path:String = _create_temp_file(data)
 	if temp_path.is_empty():
 		print("Failed to create temp file!")
-		Core.event_bus.call_deferred("emit_signal","game_data_saved",false,"Failed to create temp file!")
+		Core.event_bus.emit_signal("game_data_saved",false,"Failed to create temp file!")
 		return Error.FAILED
 	
-	var backup_error = _create_backup_file(path)
+	var backup_error = _create_backup_file(data,path)
 	if backup_error != OK:
 		print("Failed to create backup file!")
-		Core.event_bus.call_deferred("emit_signal","game_data_saved",false,"Failed to create backup file!")
+		Core.event_bus.emit_signal("game_data_saved",false,"Failed to create backup file!")
 		return Error.FAILED
 	
 	var rename_error = DirAccess.open("user://").rename(temp_path,path)
 	if rename_error != OK:
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 		print("Failed to rename file!")
-		Core.event_bus.call_deferred("emit_signal","game_data_saved",false,"Failed to rename file!")
+		Core.event_bus.emit_signal("game_data_saved",false,"Failed to rename file!")
 		return Error.FAILED
 	
-	Core.event_bus.call_deferred("emit_signal","game_data_saved",true,"Saved successfuly!")
+	Core.event_bus.emit_signal("game_data_saved",true,"Saved successfuly!")
 	return Error.OK
 
 
 func _get_data_for_save() -> String:
 	var data:Dictionary[String,Variant] = data_handler.game_data_to_dict()
 	data["save_time"] = int(Time.get_unix_time_from_system())
-	var json_string = JSON.stringify(data)
+	data.sort()
+	var json_string = JSON.stringify(data,"\t")
+	
 	
 	var checksum:String = (json_string + SAVE_SECRET_CODE).sha256_text()
 	var save_package:Dictionary[String,Variant] = {
+		"data": json_string, 									# ПОФИКСИ СТРОЧКУ!!! ЭТО ВЫГЛЯДИТ УЖАСНО В JSON!!!
 		"signature": checksum, 
-		"data": data,
 	}
 	var data_string:String = JSON.stringify(save_package,"\t")
 	return data_string
@@ -126,11 +130,11 @@ func _get_data_for_save() -> String:
 
 func _create_temp_file(data:String) -> String:
 	var temp_file:FileAccess = FileAccess.create_temp(FileAccess.WRITE,"save","tmp",true)
+	var temp_path:String = temp_file.get_path()
 	if not temp_file:
-		print("Failed to create temp file! Error: %s" % FileAccess.get_open_error())
+		print("Failed to create temp file! Error: %s\tPath:%s" % [error_string(FileAccess.get_open_error()),temp_path])
 		return ""
 	
-	var temp_path:String = temp_file.get_path()
 	temp_file.store_string(data)
 	temp_file.flush()
 	temp_file.close()
@@ -140,23 +144,21 @@ func _create_temp_file(data:String) -> String:
 func _create_backup_file(data:String, path:String = DEFAULT_DATA_SAVEPATH) -> Error:
 	var dir:DirAccess = DirAccess.open("user://")
 	if not dir:
-		print("Failed to open dir! Error: %s" % DirAccess.get_open_error())
+		print("Failed to open user dir! Error: %s" % error_string(DirAccess.get_open_error()))
 		return Error.FAILED
 	
 	var old_backup_path:String = path + ".bak"
-	var new_backup_path:String = old_backup_path + ".new"
+	var new_backup_path:String = old_backup_path + ".tmp"
 	var file = FileAccess.open(new_backup_path, FileAccess.WRITE)
 	if not file:
-		print("Failed to open file! Erorr: %s" % FileAccess.get_open_error())
+		print("Failed to open backup file! Error: %s\tPath:%s" % error_string(FileAccess.get_open_error()),new_backup_path)
+		return Error.FAILED
 	file.store_string(data)
 	file.close()
 	
-	if not dir.file_exists(old_backup_path):
-		return Error.ERR_FILE_NOT_FOUND
-	
-	var rename_error = dir.rename(old_backup_path,new_backup_path)
+	var rename_error = dir.rename(new_backup_path,old_backup_path)
 	if rename_error != OK:
-		print("Failed to rename backup file! Error: %s" % rename_error)
+		print("Failed to rename backup file! Error: %s\tPath:%s" % [error_string(rename_error),new_backup_path])
 		return Error.FAILED
 	return Error.OK
 

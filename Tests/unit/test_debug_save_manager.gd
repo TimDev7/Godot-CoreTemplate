@@ -9,14 +9,10 @@ func before_all():
 
 
 func before_each():
-	add_child_autoqfree()
+	add_child_autoqfree(CoreDSaveManager)
 	
 
 
 func after_each():
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
-
-
-func test_file_exists():
-	
