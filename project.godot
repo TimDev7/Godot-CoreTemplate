@@ -14,11 +14,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="CoreTemplate"
+config/name="CoreTemplate(OLD)"
 config/description="III generation template"
 config/tags=PackedStringArray("2026", "completed", "template")
 run/main_scene="uid://dwekft0fiy0vt"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/stretch_mode=0
@@ -40,21 +40,16 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=540
+window/size/viewport_height=1200
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/handheld/orientation=1
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
 "res://Template/": "pink",
-"res://Tests/": "blue",
 "res://Tools/": "yellow"
 }
 

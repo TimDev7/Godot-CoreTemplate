@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://c6to86xg0qg4e"]
-
-[ext_resource type="Script" uid="uid://bmyb4qdnmvwyb" path="res://Template/Core/scenes/SaveManager/release_save_manager.gd" id="1_o0hnb"]
-
-[node name="ReleaseSaveManager" type="Node" unique_id=276985738]
-script = ExtResource("1_o0hnb")

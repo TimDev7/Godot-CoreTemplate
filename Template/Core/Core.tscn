@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://c5ebbashndm85"]
+[gd_scene load_steps=5 format=3 uid="uid://c5ebbashndm85"]
 
 [ext_resource type="Script" uid="uid://dubn0dfy38ofc" path="res://Template/Core/core.gd" id="1_mhksw"]
 [ext_resource type="PackedScene" uid="uid://bb2cu7tkt1e5q" path="res://Template/Core/scenes/EventBus/event_bus.tscn" id="2_6a36g"]
 [ext_resource type="PackedScene" uid="uid://cwpij64lqpq4q" path="res://Template/Core/scenes/SaveManager/save_manager.tscn" id="3_gwk31"]
 [ext_resource type="PackedScene" uid="uid://bhxx1wsswagvf" path="res://Template/Core/scenes/SoundManager/global_sound.tscn" id="4_2y2qu"]
 
-[node name="Core" type="Node" unique_id=1388383081]
+[node name="Core" type="Node"]
 script = ExtResource("1_mhksw")
 
-[node name="EventBus" parent="." unique_id=707615628 instance=ExtResource("2_6a36g")]
+[node name="EventBus" parent="." instance=ExtResource("2_6a36g")]
 
-[node name="SaveManager" parent="." unique_id=502106793 instance=ExtResource("3_gwk31")]
+[node name="SaveManager" parent="." instance=ExtResource("3_gwk31")]
 
-[node name="SoundManager" parent="." unique_id=1109158459 instance=ExtResource("4_2y2qu")]
+[node name="SoundManager" parent="." instance=ExtResource("4_2y2qu")]

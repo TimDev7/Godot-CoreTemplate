@@ -23,7 +23,7 @@ func dict_to_game_data(dict:Dictionary) -> void:
 
 
 func game_data_to_dict() -> Dictionary:
-	var dict:Dictionary[String,Variant] = {}
+	var dict:Dictionary = {}
 	
 	for node in get_children():
 		if node.has_method("serialize"):

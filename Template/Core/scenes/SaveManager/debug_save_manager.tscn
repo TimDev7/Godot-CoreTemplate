@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://caiii8kxabki1"]
-
-[ext_resource type="Script" uid="uid://c5xpa6a8hbnjw" path="res://Template/Core/scenes/SaveManager/debug_save_manager.gd" id="1_3b8ko"]
-
-[node name="DebugSaveManager" type="Node" unique_id=1354334448]
-script = ExtResource("1_3b8ko")

@@ -6,7 +6,7 @@ var sfx_mute: bool = false
 
 
 func serialize() -> Dictionary:
-	var dict:Dictionary[String,Variant] = {}
+	var dict:Dictionary = {}
 	
 	dict["music_mute"] = music_mute
 	dict["sfx_mute"] = sfx_mute

@@ -11,6 +11,6 @@ func _ready():
 	Core.register_game(game_data)
 
 
-func _on_game_data_loaded(success:bool,backup_used:bool,_last_save_time:int) -> void:
+func _on_game_data_loaded(_last_save_time:int) -> void:
 	game_data.initialize(_last_save_time)
 	sound_manager.initialize()
