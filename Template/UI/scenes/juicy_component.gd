@@ -7,11 +7,11 @@ class_name JuiceComponent
 @export var anim_time:float = 0.1
 
 var tween:Tween
-var _button:Button
+var _button:BaseButton
 
 func _ready() -> void:
 	var parent = get_parent()
-	if parent is Button:
+	if parent is BaseButton:
 		_button = parent
 	_button.pivot_offset_ratio = Vector2(0.5,0.5)
 	_button.button_down.connect(_on_button_down)

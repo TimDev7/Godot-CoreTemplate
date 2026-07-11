@@ -3,7 +3,8 @@
 [ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_wrubf"]
 [ext_resource type="Script" uid="uid://dhhqrq8hnlnig" path="res://Template/UI/ui_test.gd" id="2_db6u0"]
 [ext_resource type="PackedScene" uid="uid://dbxuyb5djs8as" path="res://Template/UI/game_window.tscn" id="2_icgfc"]
-[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/juicy_component.tscn" id="2_l745i"]
+[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/scenes/juicy_component.tscn" id="2_l745i"]
+[ext_resource type="PackedScene" uid="uid://byisttmte7h8w" path="res://Template/UI/scenes/juicy_checkbox.tscn" id="5_db6u0"]
 
 [node name="UiTest" type="Control" unique_id=1362653785]
 layout_mode = 3
@@ -79,5 +80,8 @@ theme_override_font_sizes/font_size = 48
 text = "Open window"
 
 [node name="JuicyComponent" parent="VBoxContainer/Button" unique_id=437082904 instance=ExtResource("2_l745i")]
+
+[node name="JuicyCheckbox" parent="VBoxContainer" unique_id=201145097 instance=ExtResource("5_db6u0")]
+layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
