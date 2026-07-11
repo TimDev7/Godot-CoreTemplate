@@ -1,4 +1,5 @@
 extends Node
+class_name JuiceComponent
 
 @export_category("JuicyComponent Settings")
 @export var button_down_scale:Vector2 = Vector2(0.8,0.8)
