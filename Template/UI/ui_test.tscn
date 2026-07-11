@@ -16,7 +16,6 @@ theme = ExtResource("1_wrubf")
 script = ExtResource("2_db6u0")
 
 [node name="GameWindow" parent="." unique_id=656352947 instance=ExtResource("2_icgfc")]
-visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1286302031]
 layout_mode = 1
@@ -25,13 +24,59 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
 alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=111211248]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Wave Wave Wave[/wave]"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [null]
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer" unique_id=960999252]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[tornado radius=10.0 freq=1.0 connected=1]Tornado Tornado[/tornado]"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [null]
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer" unique_id=593421910]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1]Shake Shake Shake[/shake]"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [null]
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer" unique_id=1926915546]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[fade start=4 length=14]Fade Fade Fade[/fade]"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [null]
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer" unique_id=2077191521]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[rainbow freq=0.01 sat=1 val=1 speed=20]Rainbow Rainbow[/rainbow]"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [null]
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1655877312]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
-text = "Hello"
+text = "Open window"
 
 [node name="JuicyComponent" parent="VBoxContainer/Button" unique_id=437082904 instance=ExtResource("2_l745i")]
 
