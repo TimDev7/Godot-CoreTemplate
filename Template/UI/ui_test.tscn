@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bb1a8rk74yiy3"]
+
+[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_wrubf"]
+[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/juicy_component.tscn" id="2_l745i"]
+
+[node name="UiTest" type="Control" unique_id=1362653785]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wrubf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1286302031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1655877312]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Hello"
+
+[node name="JuicyComponent" parent="VBoxContainer/Button" unique_id=437082904 instance=ExtResource("2_l745i")]
