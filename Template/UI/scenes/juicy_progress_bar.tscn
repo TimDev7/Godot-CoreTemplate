@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cyh2y5xqsy7is"]
+
+[ext_resource type="Texture2D" uid="uid://cpeeqvaq8yntk" path="res://Assets/Textures/Sprite-0001.png" id="1_xr5vh"]
+[ext_resource type="Script" uid="uid://db7hb7h4qgndy" path="res://Template/UI/scenes/juicy_progress_bar.gd" id="2_l4d3o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhude"]
+atlas = ExtResource("1_xr5vh")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l4d3o"]
+load_path = "res://.godot/imported/Sprite-0001.png-bcbcb9533be8ecc780dc0ae29b20866a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnhwn"]
+atlas = SubResource("CompressedTexture2D_l4d3o")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7l2mw"]
+load_path = "res://.godot/imported/Sprite-0001.png-bcbcb9533be8ecc780dc0ae29b20866a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8e44"]
+atlas = SubResource("CompressedTexture2D_7l2mw")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2f55"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="JuicyProgressBar" type="TextureProgressBar" unique_id=1892883523]
+texture_filter = 1
+offset_left = 32.0
+offset_right = 320.0
+offset_bottom = 55.0
+step = 0.1
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_under = SubResource("AtlasTexture_qhude")
+texture_over = SubResource("AtlasTexture_pnhwn")
+texture_progress = SubResource("AtlasTexture_r8e44")
+script = ExtResource("2_l4d3o")
+new_value = 50.0
+anim_time = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1062230903]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=671824166]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w2f55")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1290448044]
+layout_mode = 2
+alignment = 1
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=267454570]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "50.0%"
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1492027517]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 4

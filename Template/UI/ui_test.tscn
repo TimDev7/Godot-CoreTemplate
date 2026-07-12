@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbxuyb5djs8as" path="res://Template/UI/game_window.tscn" id="2_icgfc"]
 [ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/scenes/juicy_component.tscn" id="2_l745i"]
 [ext_resource type="PackedScene" uid="uid://byisttmte7h8w" path="res://Template/UI/scenes/juicy_checkbox.tscn" id="5_db6u0"]
+[ext_resource type="PackedScene" uid="uid://cyh2y5xqsy7is" path="res://Template/UI/scenes/juicy_progress_bar.tscn" id="6_enwq8"]
 
 [node name="UiTest" type="Control" unique_id=1362653785]
 layout_mode = 3
@@ -83,5 +84,11 @@ text = "Open window"
 
 [node name="JuicyCheckbox" parent="VBoxContainer" unique_id=201145097 instance=ExtResource("5_db6u0")]
 layout_mode = 2
+
+[node name="JuicyProgressBar" parent="VBoxContainer" unique_id=1892883523 instance=ExtResource("6_enwq8")]
+custom_minimum_size = Vector2(480, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+anim_time = 0.2
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
