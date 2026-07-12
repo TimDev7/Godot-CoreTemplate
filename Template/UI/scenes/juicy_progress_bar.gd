@@ -14,14 +14,23 @@ signal animation_finished
 		if is_equal_approx(new_value, max_value):
 			max_value_achived.emit()
 
+
+@export var anim_time:float = 0.2:
+	set(value):
+		anim_time = clampf(value,0.05,10)
+
+
 @export var icon_tex:Texture2D:
 	set(value):
 		icon_tex = value
 		call_deferred("_update_ui")
 
-@export var anim_time:float = 0.2:
+
+@export var font_size:int:
 	set(value):
-		anim_time = clampf(value,0.05,10)
+		font_size = value
+		call_deferred("_update_ui")
+
 
 @export_category("Margins")
 @export var container_margin_left:int = 4:
@@ -61,9 +70,10 @@ func _update_ui() -> void:
 	margin_container.add_theme_constant_override("margin_left", container_margin_left)
 	margin_container.add_theme_constant_override("margin_right", container_margin_right)
 	margin_container.add_theme_constant_override("margin_top", container_margin_top)
-	#value_label.text = str(value / max_value * 100) + "%"
+	value_label.add_theme_font_size_override("font_size",font_size)
 	icon.texture = icon_tex
 	
+
 
 func _change_value_smooth(_new_value: float) -> void:
 	if _tween: _tween.kill()
@@ -72,8 +82,7 @@ func _change_value_smooth(_new_value: float) -> void:
 	_tween.tween_property(self, "value", _new_value, anim_time).set_trans(Tween.TRANS_BACK)
 	_tween.tween_method(
 		func(val:float):
-			value_label.text = str(snapped(val / max_value * 100.0, 0.1)) + "%"
-			print(0),
+			value_label.text = str(snapped(val / max_value * 100.0, 0.1)) + "%",
 		value,
 		_new_value,
 		anim_time
