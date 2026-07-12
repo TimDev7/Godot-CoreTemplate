@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://byisttmte7h8w"]
 
+[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_ejhh4"]
 [ext_resource type="Script" uid="uid://ujvp75by55p1" path="res://Template/UI/scenes/juicy_checkbox.gd" id="1_v24pl"]
 [ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/scenes/juicy_component.tscn" id="2_artvg"]
 
@@ -17,6 +18,7 @@ fill_to = Vector2(0.8504273, 0.8504273)
 [node name="JuicyCheckBox" type="MarginContainer" unique_id=657693057]
 offset_right = 540.0
 offset_bottom = 64.0
+theme = ExtResource("1_ejhh4")
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32

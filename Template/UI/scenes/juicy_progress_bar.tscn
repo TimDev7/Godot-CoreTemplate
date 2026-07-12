@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cyh2y5xqsy7is"]
 
+[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_xr5vh"]
 [ext_resource type="Script" uid="uid://db7hb7h4qgndy" path="res://Template/UI/scenes/juicy_progress_bar.gd" id="2_l4d3o"]
 
 [sub_resource type="Gradient" id="Gradient_fa1f0"]
@@ -32,6 +33,7 @@ texture_filter = 1
 offset_left = 32.0
 offset_right = 320.0
 offset_bottom = 55.0
+theme = ExtResource("1_xr5vh")
 step = 0.1
 nine_patch_stretch = true
 stretch_margin_left = 24
@@ -43,7 +45,6 @@ texture_over = SubResource("GradientTexture2D_xr5vh")
 texture_progress = SubResource("GradientTexture2D_l4d3o")
 script = ExtResource("2_l4d3o")
 anim_time = 0.5
-font_size = null
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1062230903]
 unique_name_in_owner = true
@@ -70,6 +71,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 0
 text = "0.0%"
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1492027517]
