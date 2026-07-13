@@ -2,7 +2,7 @@
 extends TextureProgressBar
 class_name JuicyProgressBar
 
-## USE 'new_value' INSTEAD FOR SMOOTH EFFECT
+## USE 'new_value' FOR SMOOTH EFFECT
 
 signal max_value_achived
 signal animation_finished
@@ -20,10 +20,14 @@ signal animation_finished
 		anim_time = clampf(value,0.05,10)
 
 
+@export var wait_until_animation_finished:bool = false
+
 @export var icon_tex:Texture2D:
 	set(value):
 		icon_tex = value
 		call_deferred("_update_ui")
+
+@export var value_change_trans:Tween.TransitionType = Tween.TransitionType.TRANS_BACK
 
 
 @export var font_size:int:
@@ -76,10 +80,14 @@ func _update_ui() -> void:
 
 
 func _change_value_smooth(_new_value: float) -> void:
-	if _tween: _tween.kill()
+	if _tween:
+		if wait_until_animation_finished and _tween.is_running(): 
+			return
+		else:
+			_tween.kill()
 	_tween = create_tween().set_parallel(true)
 	
-	_tween.tween_property(self, "value", _new_value, anim_time).set_trans(Tween.TRANS_BACK)
+	_tween.tween_property(self, "value", _new_value, anim_time).set_trans(value_change_trans)
 	_tween.tween_method(
 		func(val:float):
 			value_label.text = str(snapped(val / max_value * 100.0, 0.1)) + "%",

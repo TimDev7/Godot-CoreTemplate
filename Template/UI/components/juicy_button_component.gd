@@ -1,7 +1,6 @@
 extends Node
-class_name JuiceComponent
+class_name JuicyButtonComponent
 
-@export_category("JuicyComponent Settings")
 @export var button_down_scale:Vector2 = Vector2(0.8,0.8)
 @export var button_up_scale:Vector2 = Vector2(1.1,1.1)
 @export var anim_time:float = 0.1

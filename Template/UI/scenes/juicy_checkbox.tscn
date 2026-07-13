@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_ejhh4"]
 [ext_resource type="Script" uid="uid://ujvp75by55p1" path="res://Template/UI/scenes/juicy_checkbox.gd" id="1_v24pl"]
-[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/scenes/juicy_component.tscn" id="2_artvg"]
+[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/components/juicy_button_component.tscn" id="2_artvg"]
 
 [sub_resource type="Gradient" id="Gradient_ejhh4"]
 interpolation_mode = 1
