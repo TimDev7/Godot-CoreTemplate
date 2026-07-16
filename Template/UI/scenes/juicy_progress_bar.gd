@@ -22,12 +22,20 @@ signal animation_finished
 
 @export var wait_until_animation_finished:bool = false
 
+
+@export var value_change_trans:Tween.TransitionType = Tween.TransitionType.TRANS_BACK
+
+
 @export var icon_tex:Texture2D:
 	set(value):
 		icon_tex = value
 		call_deferred("_update_ui")
 
-@export var value_change_trans:Tween.TransitionType = Tween.TransitionType.TRANS_BACK
+
+@export var text_value_visible:bool = false:
+	set(value):
+		text_value_visible = value
+		call_deferred("_update_ui")
 
 
 @export var font_size:int:
@@ -74,7 +82,8 @@ func _update_ui() -> void:
 	margin_container.add_theme_constant_override("margin_left", container_margin_left)
 	margin_container.add_theme_constant_override("margin_right", container_margin_right)
 	margin_container.add_theme_constant_override("margin_top", container_margin_top)
-	value_label.add_theme_font_size_override("font_size",font_size)
+	value_label.visible = text_value_visible
+	value_label.add_theme_font_size_override("fon t_size",font_size)
 	icon.texture = icon_tex
 	
 

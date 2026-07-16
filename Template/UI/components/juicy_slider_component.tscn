@@ -9,6 +9,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("1_c37lt")
+juicy_slider_normal_scale = null
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=729265170]
 layout_mode = 1

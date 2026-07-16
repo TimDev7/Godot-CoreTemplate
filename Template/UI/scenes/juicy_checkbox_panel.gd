@@ -1,14 +1,14 @@
 @tool
 extends MarginContainer
-class_name JuicyCheckbox
+class_name JuicyCheckboxPanel
 
 ## DO NOT INTERACT WITH CHILDREN.
 ## USE PROPERTIES TO ACCESS WITH THEM FROM THIS CLASS INSTEAD
 
 @onready var label: Label = %Label
-@onready var h_box_container: HBoxContainer = %HBoxContainer
-@onready var button: TextureButton = %Button
-@onready var debug_label: Label = %DebugLabel
+@onready var juicy_check_box: JuicyCheckbox = %JuicyCheckBox
+@onready var button: CheckBox = juicy_check_box.button
+
 
 @export var text:String:
 	set(value):
@@ -21,9 +21,9 @@ class_name JuicyCheckbox
 		call_deferred("_update_ui")
 
 
-@export var h_separation: int:
+@export var button_min_size:Vector2 = Vector2(32,32):
 	set(value):
-		h_separation = value
+		button_min_size = value
 		call_deferred("_update_ui")
 
 
@@ -44,17 +44,14 @@ func _update_ui() -> void:
 	if not is_inside_tree(): return
 	if not label:
 		label = %Label
-	if not h_box_container:
-		h_box_container = %HBoxContainer
+	if not juicy_check_box:
+		juicy_check_box = %JuicyCheckBox
 	if not button:
-		button = %Button
-	if not debug_label:
-		debug_label = %DebugLabel
+		button = juicy_check_box.button
 	label.text = text
 	label.add_theme_font_size_override("font_size",font_size)
-	h_box_container.add_theme_constant_override("separation",h_separation)
 	button.disabled = disabled
-	debug_label.text = str(button_pressed)
+	juicy_check_box.custom_minimum_size = button_min_size
 
 
 func _on_button_toggled(toggled_on: bool) -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dhhqrq8hnlnig" path="res://Template/UI/ui_test.gd" id="2_db6u0"]
 [ext_resource type="PackedScene" uid="uid://dbxuyb5djs8as" path="res://Template/UI/scenes/game_window.tscn" id="2_icgfc"]
 [ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/components/juicy_button_component.tscn" id="2_l745i"]
-[ext_resource type="PackedScene" uid="uid://byisttmte7h8w" path="res://Template/UI/scenes/juicy_checkbox.tscn" id="5_db6u0"]
+[ext_resource type="PackedScene" uid="uid://byisttmte7h8w" path="res://Template/UI/scenes/juicy_checkbox_panel.tscn" id="5_db6u0"]
 [ext_resource type="PackedScene" uid="uid://cyh2y5xqsy7is" path="res://Template/UI/scenes/juicy_progress_bar.tscn" id="6_enwq8"]
 [ext_resource type="PackedScene" uid="uid://cg7q5bdw21c6f" path="res://Template/UI/components/juicy_slider_component.tscn" id="7_74c7v"]
 [ext_resource type="Texture2D" uid="uid://bguqn7rtubcow" path="res://Template/Game/GameNodeIcon.svg" id="8_4tx6f"]
@@ -100,10 +100,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(480, 32)
 layout_mode = 2
 size_flags_horizontal = 4
-anim_time = 0.1
-wait_until_animation_finished = true
+value_change_trans = 0
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer" unique_id=468589392]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_4tx6f")
 theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_4tx6f")
@@ -121,6 +121,9 @@ grow_horizontal = 2
 grow_vertical = 2
 juicy_slider_tex = ExtResource("8_4tx6f")
 juicy_slider_pressed_tex = ExtResource("9_y6u8o")
+juicy_slider_normal_scale = Vector2(2, 2)
+juicy_slider_up_scale = Vector2(2.2, 2.2)
+juicy_slider_down_scale = Vector2(1.8, 1.8)
 
 [node name="VSlider" type="VSlider" parent="VBoxContainer" unique_id=510684432]
 layout_mode = 2
@@ -141,6 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 juicy_slider_tex = ExtResource("8_4tx6f")
 juicy_slider_pressed_tex = ExtResource("9_y6u8o")
+juicy_slider_normal_scale = Vector2(1, 1)
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -11,6 +11,9 @@ class_name JuicySliderComponent
 			juicy_slider.texture = juicy_slider_tex
 			_update_ui()
 @export var juicy_slider_pressed_tex:Texture2D
+@export var juicy_slider_normal_scale:Vector2 = Vector2(1.0,1.0):
+	set(value):
+		juicy_slider_normal_scale = value
 @export var juicy_slider_up_scale:Vector2 = Vector2(1.2,1.2)
 @export var juicy_slider_down_scale:Vector2 = Vector2(0.8,0.8)
 @export var juicy_slider_anim_time:float = 0.2
@@ -37,11 +40,9 @@ func _ready() -> void:
 	slider.value_changed.connect(_on_value_changed)
 	slider.resized.connect(_on_resized)
 	
-	print(juicy_slider_control.size)
 	call_deferred("_apply_theme_on_juicy_slider")
 	await get_tree().create_timer(0.1).timeout
 	call_deferred("_on_resized")
-	print(juicy_slider_control.size)
 
 
 func _update_ui() -> void:
@@ -49,6 +50,7 @@ func _update_ui() -> void:
 		juicy_slider = %JuicySlider
 	if not juicy_slider_control:
 		juicy_slider_control = %JuicySliderControl
+	juicy_slider.scale = juicy_slider_normal_scale
 	if _juicy_slider_step < 0:
 		_update_juicy_slider_step()
 		
@@ -81,7 +83,6 @@ func _update_juicy_slider_step() -> void:
 		save_area_size = (juicy_slider_control.size.x - juicy_slider.size.x)
 	else:
 		save_area_size = (juicy_slider_control.size.y - juicy_slider.size.y)
-	print(juicy_slider_control.size)
 	_juicy_slider_step = (save_area_size / slider.max_value)
 
 
@@ -125,6 +126,6 @@ func _on_drag_ended(_value_changed: bool) -> void:
 	_tween.tween_property(
 		juicy_slider,
 		"scale",
-		Vector2.ONE,
+		juicy_slider_normal_scale,
 		juicy_slider_anim_time
 	).set_trans(Tween.TRANS_BOUNCE)
