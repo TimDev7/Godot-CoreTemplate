@@ -1,6 +1,7 @@
 extends Node
 class_name JuicyButtonComponent
 
+@export var button_normal_scale:Vector2 = Vector2(1.0,1.0)
 @export var button_down_scale:Vector2 = Vector2(0.8,0.8)
 @export var button_up_scale:Vector2 = Vector2(1.1,1.1)
 @export var anim_time:float = 0.1
@@ -27,4 +28,4 @@ func _on_button_up() -> void:
 	if tween: tween.kill()
 	tween = create_tween()
 	tween.tween_property(_button, "scale", button_up_scale, anim_time).set_ease(Tween.EASE_OUT)
-	tween.tween_property(_button, "scale", Vector2.ONE, anim_time).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_button, "scale", button_normal_scale, anim_time).set_ease(Tween.EASE_OUT)
