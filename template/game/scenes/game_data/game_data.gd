@@ -2,7 +2,10 @@ extends Node
 class_name GameData
 
 # --- NODE ---
-@onready var sounds:Sounds = $Sounds
+@onready var sounds: Sounds = $Sounds
+@onready var background_manager: BackgroundManager = $BackgroundManager
+@onready var transition_manager: TransitionManager = $TransitionManager
+
 
 
 func initialize(_last_save_time:int) -> void:
