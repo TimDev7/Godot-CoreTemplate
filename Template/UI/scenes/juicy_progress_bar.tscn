@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyh2y5xqsy7is"]
 
-[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_xr5vh"]
-[ext_resource type="Script" uid="uid://db7hb7h4qgndy" path="res://Template/UI/scenes/juicy_progress_bar.gd" id="2_l4d3o"]
+[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://assets/themes/default.tres" id="1_xr5vh"]
+[ext_resource type="Script" uid="uid://db7hb7h4qgndy" path="res://Template/ui/scenes/juicy_progress_bar.gd" id="2_l4d3o"]
 
 [sub_resource type="Gradient" id="Gradient_fa1f0"]
 colors = PackedColorArray(0.07058824, 0.1254902, 0.1254902, 1, 0.101960786, 0.47843137, 0.24313726, 1)

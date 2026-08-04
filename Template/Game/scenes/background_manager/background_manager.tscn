@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv67siuj3mtl0"]
 
-[ext_resource type="Script" uid="uid://b0i7ves4gx8p6" path="res://Template/Game/scenes/BackgroundManager/background_manager.gd" id="1_414hk"]
+[ext_resource type="Script" uid="uid://b0i7ves4gx8p6" path="res://Template/game/scenes/background_manager/background_manager.gd" id="1_414hk"]
 
 [sub_resource type="Gradient" id="Gradient_37esa"]
 offsets = PackedFloat32Array(0, 0.36697248, 1)

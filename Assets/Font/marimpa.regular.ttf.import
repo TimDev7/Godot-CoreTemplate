@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c8sc0nibjd6im"
-path="res://.godot/imported/marimpa.regular.ttf-e8f1d29038e23855cb51c70a840a9e82.fontdata"
+path="res://.godot/imported/marimpa.regular.ttf-d1f7b58afbc26fe30133161e7ae14092.fontdata"
 
 [deps]
 
-source_file="res://Assets/Font/marimpa.regular.ttf"
-dest_files=["res://.godot/imported/marimpa.regular.ttf-e8f1d29038e23855cb51c70a840a9e82.fontdata"]
+source_file="res://assets/font/marimpa.regular.ttf"
+dest_files=["res://.godot/imported/marimpa.regular.ttf-d1f7b58afbc26fe30133161e7ae14092.fontdata"]
 
 [params]
 

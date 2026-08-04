@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d4dmefyprq0ha"]
 
-[ext_resource type="Script" uid="uid://b5luaw5bo78e4" path="res://Template/UI/scenes/juicy_check_box.gd" id="1_6dy23"]
-[ext_resource type="Texture2D" uid="uid://5kpeoe6dduvg" path="res://Template/UI/TemplateAtlas.png" id="1_ytibe"]
-[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/components/juicy_button_component.tscn" id="2_6dy23"]
+[ext_resource type="Script" uid="uid://b5luaw5bo78e4" path="res://Template/ui/scenes/juicy_check_box.gd" id="1_6dy23"]
+[ext_resource type="Texture2D" uid="uid://5kpeoe6dduvg" path="res://Template/ui/template_atlas.png" id="1_ytibe"]
+[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/ui/components/juicy_button_component.tscn" id="2_6dy23"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2f55"]
 atlas = ExtResource("1_ytibe")

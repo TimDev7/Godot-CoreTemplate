@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bb1a8rk74yiy3"]
 
-[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://Assets/Themes/default.tres" id="1_wrubf"]
-[ext_resource type="Script" uid="uid://dhhqrq8hnlnig" path="res://Template/UI/ui_test.gd" id="2_db6u0"]
-[ext_resource type="PackedScene" uid="uid://dbxuyb5djs8as" path="res://Template/UI/scenes/game_window.tscn" id="2_icgfc"]
-[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/UI/components/juicy_button_component.tscn" id="2_l745i"]
-[ext_resource type="PackedScene" uid="uid://byisttmte7h8w" path="res://Template/UI/scenes/juicy_checkbox_panel.tscn" id="5_db6u0"]
-[ext_resource type="PackedScene" uid="uid://cyh2y5xqsy7is" path="res://Template/UI/scenes/juicy_progress_bar.tscn" id="6_enwq8"]
-[ext_resource type="PackedScene" uid="uid://cg7q5bdw21c6f" path="res://Template/UI/components/juicy_slider_component.tscn" id="7_74c7v"]
-[ext_resource type="Texture2D" uid="uid://bguqn7rtubcow" path="res://Template/Game/GameNodeIcon.svg" id="8_4tx6f"]
-[ext_resource type="Texture2D" uid="uid://cmw8i08lf5r0r" path="res://Template/Core/CoreNodeIcon.svg" id="9_y6u8o"]
+[ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://assets/themes/default.tres" id="1_wrubf"]
+[ext_resource type="Script" uid="uid://dhhqrq8hnlnig" path="res://Template/ui/ui_test.gd" id="2_db6u0"]
+[ext_resource type="PackedScene" uid="uid://dbxuyb5djs8as" path="res://Template/ui/scenes/game_window.tscn" id="2_icgfc"]
+[ext_resource type="PackedScene" uid="uid://cxlr8nmotfbdk" path="res://Template/ui/components/juicy_button_component.tscn" id="2_l745i"]
+[ext_resource type="PackedScene" uid="uid://byisttmte7h8w" path="res://Template/ui/scenes/juicy_checkbox_panel.tscn" id="5_db6u0"]
+[ext_resource type="PackedScene" uid="uid://cyh2y5xqsy7is" path="res://Template/ui/scenes/juicy_progress_bar.tscn" id="6_enwq8"]
+[ext_resource type="PackedScene" uid="uid://cg7q5bdw21c6f" path="res://Template/ui/components/juicy_slider_component.tscn" id="7_74c7v"]
+[ext_resource type="Texture2D" uid="uid://c5quqyhs7dgn4" path="res://Template/game/game_node_icon.svg" id="8_4tx6f"]
+[ext_resource type="Texture2D" uid="uid://cmw8i08lf5r0r" path="res://Template/core/core_node_icon.svg" id="9_y6u8o"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4tx6f"]
 size = Vector2(0, 0)

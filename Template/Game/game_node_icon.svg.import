@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5kpeoe6dduvg"
-path="res://.godot/imported/TemplateAtlas.png-8dce22c9eda3e0eff28df400e770a6eb.ctex"
+uid="uid://bv4ncsrxr7boq"
+path="res://.godot/imported/game_node_icon.svg-6b48d93637ee6acf984a3c01dbb7e108.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Template/UI/TemplateAtlas.png"
-dest_files=["res://.godot/imported/TemplateAtlas.png-8dce22c9eda3e0eff28df400e770a6eb.ctex"]
+source_file="res://template/game/game_node_icon.svg"
+dest_files=["res://.godot/imported/game_node_icon.svg-6b48d93637ee6acf984a3c01dbb7e108.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5ebbashndm85"]
+[gd_scene format=3 uid="uid://c5ebbashndm85"]
 
-[ext_resource type="Script" uid="uid://dubn0dfy38ofc" path="res://Template/Core/core.gd" id="1_mhksw"]
-[ext_resource type="PackedScene" uid="uid://bb2cu7tkt1e5q" path="res://Template/Core/scenes/EventBus/event_bus.tscn" id="2_6a36g"]
-[ext_resource type="PackedScene" uid="uid://cwpij64lqpq4q" path="res://Template/Core/scenes/SaveManager/save_manager.tscn" id="3_gwk31"]
-[ext_resource type="PackedScene" uid="uid://bhxx1wsswagvf" path="res://Template/Core/scenes/SoundManager/global_sound.tscn" id="4_2y2qu"]
+[ext_resource type="Script" uid="uid://dubn0dfy38ofc" path="res://Template/core/core.gd" id="1_mhksw"]
+[ext_resource type="PackedScene" uid="uid://bb2cu7tkt1e5q" path="res://Template/core/scenes/event_bus/event_bus.tscn" id="2_6a36g"]
+[ext_resource type="PackedScene" uid="uid://cwpij64lqpq4q" path="res://Template/core/scenes/save_manager/save_manager.tscn" id="3_gwk31"]
+[ext_resource type="PackedScene" uid="uid://bhxx1wsswagvf" path="res://Template/core/scenes/sound_manager/global_sound.tscn" id="4_2y2qu"]
 
 [node name="Core" type="Node"]
 script = ExtResource("1_mhksw")

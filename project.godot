@@ -31,8 +31,8 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Core="*res://Template/Core/Core.tscn"
-Game="*res://Game/Game.tscn"
+Core="*res://Template/core/core.tscn"
+Game="*res://game/game.tscn"
 
 [debug]
 
@@ -50,7 +50,8 @@ window/handheld/orientation=1
 
 folder_colors={
 "res://Template/": "pink",
-"res://Tools/": "yellow"
+"res://template/": "pink",
+"res://tools/": "yellow"
 }
 
 [global_group]
