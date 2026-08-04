@@ -31,7 +31,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Core="*res://Template/core/core.tscn"
+Core="*uid://c5ebbashndm85"
 Game="*res://game/game.tscn"
 
 [debug]
