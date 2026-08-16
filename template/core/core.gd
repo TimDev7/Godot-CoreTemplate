@@ -1,4 +1,4 @@
-@icon("res://Template/Core/CoreNodeIcon.svg")
+@icon("res://template/Core/CoreNodeIcon.svg")
 extends Node
 
 @onready var event_bus:CoreEventBus = $EventBus

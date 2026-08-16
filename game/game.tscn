@@ -8,8 +8,7 @@
 [node name="Game" unique_id=1361593517 instance=ExtResource("1_bk3v5")]
 script = ExtResource("2_1r4le")
 
-[node name="BackgroundManager" parent="GameData" parent_id_path=PackedInt32Array(1029004650) index="1" unique_id=38855730 instance=ExtResource("3_4fuuu")]
-script = null
+[node name="BackgroundManager" parent="GameData" parent_id_path=PackedInt32Array(1029004650) index="0" unique_id=38855730 instance=ExtResource("3_4fuuu")]
+layer = -999
 
-[node name="TransitionManager" parent="GameData" parent_id_path=PackedInt32Array(1029004650) index="2" unique_id=71479453 instance=ExtResource("4_dxrkv")]
-script = null
+[node name="TransitionManager" parent="GameData" parent_id_path=PackedInt32Array(1029004650) index="1" unique_id=71479453 instance=ExtResource("4_dxrkv")]

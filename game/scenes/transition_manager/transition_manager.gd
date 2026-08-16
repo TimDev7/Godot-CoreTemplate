@@ -1,7 +1,7 @@
 extends Node
 class_name TransitionManager
 
-enum Scenes {}
+enum Scenes {None}
 var _scene_to_packed:Dictionary[Scenes, PackedScene] = {
 }
 var current_scene:Scenes

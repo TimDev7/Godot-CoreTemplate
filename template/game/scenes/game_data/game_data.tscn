@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[ext_resource type="Script" uid="uid://bo62mtghsx1y0" path="res://Template/game/scenes/game_data/game_data.gd" id="1"]
+[ext_resource type="Script" uid="uid://bo62mtghsx1y0" path="res://template/game/scenes/game_data/game_data.gd" id="1"]
 
 [node name="GameData" type="Node"]
 script = ExtResource( 1 )

@@ -1,4 +1,4 @@
-@icon("res://Template/Game/GameNodeIcon.svg")
+@icon("res://template/Game/GameNodeIcon.svg")
 extends Node
 class_name BaseGame
 
