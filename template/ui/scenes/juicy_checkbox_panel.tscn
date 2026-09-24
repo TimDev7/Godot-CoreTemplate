@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://byisttmte7h8w"]
 
 [ext_resource type="Theme" uid="uid://cpn5fmpmla1su" path="res://assets/themes/default.tres" id="1_ejhh4"]
-[ext_resource type="Script" uid="uid://ujvp75by55p1" path="res://Template/ui/scenes/juicy_checkbox_panel.gd" id="2_kq06b"]
-[ext_resource type="PackedScene" uid="uid://d4dmefyprq0ha" path="res://Template/ui/scenes/juicy_check_box.tscn" id="3_hqduc"]
+[ext_resource type="Script" uid="uid://ujvp75by55p1" path="res://template/ui/scenes/juicy_checkbox_panel.gd" id="2_kq06b"]
+[ext_resource type="PackedScene" uid="uid://d4dmefyprq0ha" path="res://template/ui/scenes/juicy_check_box.tscn" id="3_hqduc"]
 
 [node name="JuicyCheckBoxPanel" type="MarginContainer" unique_id=657693057]
 offset_right = 274.0
