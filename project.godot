@@ -27,7 +27,7 @@ config/icon="uid://cxyewa58ncabk"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="res://template/core/scenes/sound_manager/default_bus_layout.tres"
 
 [autoload]
 
