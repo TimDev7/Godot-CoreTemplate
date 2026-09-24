@@ -32,7 +32,10 @@ buses/default_bus_layout=""
 [autoload]
 
 Core="*uid://c5ebbashndm85"
+Bridge="*uid://cx4klxojbw6ck"
+GPX="*uid://cabehkcybcdjh"
 Game="*res://game/game.tscn"
+CG="*uid://by4ri8tohufka"
 
 [debug]
 
@@ -45,6 +48,10 @@ window/size/viewport_height=1200
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/crazygames_sdk/plugin.cfg", "res://addons/gpx-godot-plugin/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/playgama_bridge/plugin.cfg", "res://addons/web_brotli_compressor/plugin.cfg")
 
 [file_customization]
 
