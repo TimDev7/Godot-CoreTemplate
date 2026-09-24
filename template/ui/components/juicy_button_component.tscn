@@ -4,3 +4,6 @@
 
 [node name="JuicyButtonComponent" type="Node" unique_id=437082904]
 script = ExtResource("1_ykbh6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=622632052]
+bus = &"SFX"
